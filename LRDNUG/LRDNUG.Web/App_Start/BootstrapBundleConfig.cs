@@ -9,11 +9,11 @@ namespace BootstrapSupport
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/js").Include(
-                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-migrate-{version}.js",
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/jquery.validate.js",
-                "~/scripts/jquery.validate.unobtrusive.js",
+                "~/Scripts/jquery-{version}.min.js",
+                "~/Scripts/jquery-migrate-{version}.min.js",
+                "~/Scripts/bootstrap.min.js",
+                "~/Scripts/jquery.validate.min.js",
+                "~/scripts/jquery.validate.unobtrusive.min.js",
                 "~/Scripts/jquery.validate.unobtrusive-custom-for-bootstrap.js"
                 ));
 

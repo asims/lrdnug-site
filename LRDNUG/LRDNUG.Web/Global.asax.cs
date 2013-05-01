@@ -14,6 +14,9 @@ namespace LRDNUG.Web
     {
         protected void Application_Start()
         {
+
+            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<LRDNUG.Web.Models.LRDNUGWebContext>());
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

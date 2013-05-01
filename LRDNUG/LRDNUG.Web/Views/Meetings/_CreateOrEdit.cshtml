@@ -1,0 +1,76 @@
+@model LRDNUG.Web.Models.Meeting
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.PresentationTitle)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.PresentationTitle)
+    @Html.ValidationMessageFor(model => model.PresentationTitle)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.SpeakerName)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.SpeakerName)
+    @Html.ValidationMessageFor(model => model.SpeakerName)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.SpeakerBio)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.SpeakerBio)
+    @Html.ValidationMessageFor(model => model.SpeakerBio)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.SpeakerTwitter)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.SpeakerTwitter)
+    @Html.ValidationMessageFor(model => model.SpeakerTwitter)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Description)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Description)
+    @Html.ValidationMessageFor(model => model.Description)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Date)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Date)
+    @Html.ValidationMessageFor(model => model.Date)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.StartTime)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.StartTime)
+    @Html.ValidationMessageFor(model => model.StartTime)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.MonthYear)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.MonthYear)
+    @Html.ValidationMessageFor(model => model.MonthYear)
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.SurveyURL)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.SurveyURL)
+    @Html.ValidationMessageFor(model => model.SurveyURL)
+</div>
+

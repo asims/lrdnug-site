@@ -15,7 +15,7 @@ namespace BootstrapMvcSample
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.MapNavigationRoute<HomeController>("Home", c => c.Index());
-            routes.MapNavigationRoute<MeetingController>("Meetings", c => c.Index())
+            routes.MapNavigationRoute<MeetingsController>("Meetings", c => c.Index())
                   .AddChildRoute<MeetingController>("Next Meeting", c => c.NextMeeting())
                   .AddChildRoute<MeetingController>("Past Meetings", c => c.PastMeetings());
            // routes.MapNavigationRoute<SponsorsController>("Sponsors", c => c.Sponsors());

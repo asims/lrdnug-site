@@ -1,0 +1,38 @@
+@model LRDNUG.Web.Models.Location
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Location</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Street1</div>
+    <div class="display-field">@Model.Street1</div>
+
+    <div class="display-label">Street2</div>
+    <div class="display-field">@Model.Street2</div>
+
+    <div class="display-label">City</div>
+    <div class="display-field">@Model.City</div>
+
+    <div class="display-label">State</div>
+    <div class="display-field">@Model.State</div>
+
+    <div class="display-label">Zip</div>
+    <div class="display-field">@Model.Zip</div>
+
+    <div class="display-label">MapUrl</div>
+    <div class="display-field">@Model.MapUrl</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

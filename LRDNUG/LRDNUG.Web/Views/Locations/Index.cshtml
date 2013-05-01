@@ -1,0 +1,71 @@
+@model IEnumerable<LRDNUG.Web.Models.Location>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Name
+        </th>
+        <th>
+            Street1
+        </th>
+        <th>
+            Street2
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            State
+        </th>
+        <th>
+            Zip
+        </th>
+        <th>
+            MapUrl
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+        <td>
+			@item.Name
+        </td>
+        <td>
+			@item.Street1
+        </td>
+        <td>
+			@item.Street2
+        </td>
+        <td>
+			@item.City
+        </td>
+        <td>
+			@item.State
+        </td>
+        <td>
+			@item.Zip
+        </td>
+        <td>
+			@item.MapUrl
+        </td>
+    </tr>
+}
+
+</table>
+
+
