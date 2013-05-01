@@ -1,0 +1,35 @@
+﻿@model LRDNUG.Web.Models.MeetingModel
+
+@{
+    ViewBag.Title = "Upcoming Meeting";
+}
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="hero-unit">
+    <h1>@Model.Title</h1>
+    <h2>@Model.Month Meeting</h2>
+    
+</div>
+
+<!-- Example row of columns -->
+<div class="row">
+    <div class="span8">
+        <h2>Description</h2>
+        <p>@Model.Description</p>
+    </div>
+    <div class="span4">
+        <h2>Time and Place</h2>
+        <p>@Model.Date</p>
+        <p>@Model.Time</p>
+        <p><a class="btn" href="#">View Map &raquo;</a></p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span8">
+        <h2>About the Speaker</h2>
+        <p>@Model.SpeakerName</p>
+        <p>@Model.SpeakerBio</p>
+    </div>
+
+</div>

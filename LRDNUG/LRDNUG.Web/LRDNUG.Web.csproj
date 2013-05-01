@@ -125,10 +125,12 @@
     <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\ExampleLayoutsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MeetingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeInputModel.cs" />
+    <Compile Include="Models\MeetingModel.cs" />
     <Compile Include="NavigationRoutes\INavigationRouteFilter.cs" />
     <Compile Include="NavigationRoutes\NamedRoute.cs" />
     <Compile Include="NavigationRoutes\NavigationExtensions.cs" />
@@ -148,6 +150,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\lrdnug_logo_trans_200x81.png" />
     <Content Include="Global.asax" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
@@ -174,7 +177,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\shared\Index.cshtml" />
     <Content Include="Views\shared\Details.cshtml" />
     <Content Include="Views\shared\Create.cshtml" />
     <Content Include="Views\shared\_validationSummary.cshtml" />
@@ -189,9 +191,12 @@
     <Content Include="Views\ExampleLayouts\Narrow.cshtml" />
     <Content Include="Views\ExampleLayouts\Marketing.cshtml" />
     <Content Include="Views\ExampleLayouts\Fluid.cshtml" />
+    <Content Include="Views\Meeting\NextMeeting.cshtml" />
+    <Content Include="Views\Meeting\PastMeetings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
