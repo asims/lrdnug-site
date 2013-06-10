@@ -9,8 +9,8 @@ namespace BootstrapSupport
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/js").Include(
-                "~/Scripts/jquery-{version}.min.js",
-                "~/Scripts/jquery-migrate-{version}.min.js",
+                "~/Scripts/jquery-1.9.1.min.js",
+                "~/Scripts/jquery-migrate-1.1.1.min.js",
                 "~/Scripts/bootstrap.min.js",
                 "~/Scripts/jquery.validate.min.js",
                 "~/scripts/jquery.validate.unobtrusive.min.js",

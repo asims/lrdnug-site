@@ -15,13 +15,14 @@
 <div class="row">
     <div class="span8">
         <h2>Description</h2>
-        <p>@Model.Description</p>
+        <p>@Html.Raw(Model.Description)</p>
     </div>
     <div class="span4">
         <h2>Time and Place</h2>
         <p>@Model.Date</p>
         <p>@Model.Time</p>
-        <p><a class="btn btn-primary" href="#">View Map &raquo;</a></p>
+        <p>The Joint</p><p> 301 Main St.</p><p> North Little Rock, AR 72114‎</p>
+        <p><a class="btn btn-primary" href="https://maps.google.com/maps?ie=UTF8&cid=3938605659390243919&q=The+Joint&iwloc=A&gl=US&hl=en">View Map &raquo;</a></p>
     </div>
 </div>
 

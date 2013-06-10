@@ -14,17 +14,17 @@ namespace BootstrapMvcSample
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapNavigationRoute<HomeController>("Home", c => c.Index());
-            routes.MapNavigationRoute<MeetingsController>("Meetings", c => c.Index())
-                  .AddChildRoute<MeetingController>("Next Meeting", c => c.NextMeeting())
-                  .AddChildRoute<MeetingController>("Past Meetings", c => c.PastMeetings());
+            //routes.MapNavigationRoute<HomeController>("Home", c => c.Index());
+            //routes.MapNavigationRoute<MeetingsController>("Meetings", c => c.Index())
+            //      .AddChildRoute<MeetingController>("Next Meeting", c => c.NextMeeting())
+            //      .AddChildRoute<MeetingController>("Past Meetings", c => c.PastMeetings());
            // routes.MapNavigationRoute<SponsorsController>("Sponsors", c => c.Sponsors());
 
-            routes.MapNavigationRoute<ExampleLayoutsController>("Example Layouts", c => c.Starter())
-                  .AddChildRoute<ExampleLayoutsController>("Marketing", c => c.Marketing())
-                  .AddChildRoute<ExampleLayoutsController>("Fluid", c => c.Fluid())
-                  .AddChildRoute<ExampleLayoutsController>("Sign In", c => c.SignIn())
-                ;
+            //routes.MapNavigationRoute<ExampleLayoutsController>("Example Layouts", c => c.Starter())
+            //      .AddChildRoute<ExampleLayoutsController>("Marketing", c => c.Marketing())
+            //      .AddChildRoute<ExampleLayoutsController>("Fluid", c => c.Fluid())
+            //      .AddChildRoute<ExampleLayoutsController>("Sign In", c => c.SignIn())
+            //    ;
         }
     }
 }
