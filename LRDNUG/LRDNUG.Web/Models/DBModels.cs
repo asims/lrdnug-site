@@ -9,10 +9,13 @@ namespace LRDNUG.Web.Models
     public class Location
     {
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Street1 { get; set; }
         public string Street2 { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string State { get; set; }
         public string Zip { get; set; }
         public string MapUrl { get; set; }
@@ -21,13 +24,17 @@ namespace LRDNUG.Web.Models
     public class Meeting
     {
         public int ID { get; set; }
+        [Required]
         public string PresentationTitle { get; set; }
+        [Required]
         public string SpeakerName { get; set; }
         public string SpeakerBio { get; set; }
         public string SpeakerTwitter { get; set; }
         public string Description { get; set; }
+        [Required]
         public DateTime Date { get; set; }
         public string StartTime { get; set; }
+        [Required]
         public string MonthYear { get; set; }
         public virtual Location Location { get; set; }
         public string SurveyURL { get; set; }
@@ -36,6 +43,7 @@ namespace LRDNUG.Web.Models
     public class Sponsors
     {
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
         public string Description { get; set; }
         public string URL { get; set; }

@@ -1,7 +1,14 @@
-﻿@model dynamic
+﻿@model IEnumerable<LRDNUG.Web.Models.MeetingViewModel>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Past LRDNUG Meetings";
 }
 
-<h2>title</h2>
+<h2>Past Meetings</h2>
+
+<ul>
+    @foreach (var m in Model)
+    {
+        <li>@m.MonthYear - @m.PresentationTitle by @m.SpeakerName</li>
+    }
+</ul>

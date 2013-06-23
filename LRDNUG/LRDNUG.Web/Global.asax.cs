@@ -14,8 +14,8 @@ namespace LRDNUG.Web
     {
         protected void Application_Start()
         {
-
-            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<LRDNUG.Web.Models.LRDNUGWebContext>());
+            
+           // System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<LRDNUG.Web.Models.LRDNUGWebContext>());
 
             AreaRegistration.RegisterAllAreas();
 
@@ -24,6 +24,8 @@ namespace LRDNUG.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BootstrapSupport.BootstrapBundleConfig.RegisterBundles(System.Web.Optimization.BundleTable.Bundles);
             BootstrapMvcSample.ExampleLayoutsRouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Bootstrapper.Initialise();
         }
     }
 }

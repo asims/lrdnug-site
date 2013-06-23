@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using LRDNUG.Web.Models;
 using Models;
 
 namespace BootstrapMvcSample.Controllers
 {
     public class HomeController : BootstrapBaseController
     {
-        private static List<HomeInputModel> _models = ModelIntializer.CreateHomeInputModels();
+        private static readonly List<HomeInputModel> _models = ModelIntializer.CreateHomeInputModels();
+
         public ActionResult Index()
         {
             return RedirectToAction("Index", "Meeting");
@@ -45,11 +43,13 @@ namespace BootstrapMvcSample.Controllers
             }
             return RedirectToAction("index");
         }
+
         public ActionResult Edit(int id)
         {
-            var model = _models.Get(id);
+            HomeInputModel model = _models.Get(id);
             return View("Create", model);
         }
+
         [HttpPost]
         public ActionResult Edit(HomeInputModel model, int id)
         {
@@ -66,10 +66,8 @@ namespace BootstrapMvcSample.Controllers
 
         public ActionResult Details(int id)
         {
-            var model = _models.Get(id);
+            HomeInputModel model = _models.Get(id);
             return View(model);
         }
-
-
     }
 }

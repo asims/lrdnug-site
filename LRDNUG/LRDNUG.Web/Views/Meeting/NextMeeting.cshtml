@@ -1,4 +1,4 @@
-﻿@model LRDNUG.Web.Models.MeetingModel
+﻿@model LRDNUG.Web.Models.MeetingViewModel
 
 @{
     ViewBag.Title = "Upcoming Meeting";
@@ -6,8 +6,8 @@
 
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
-    <h1>@Model.Title</h1>
-    <h2>@Model.Month Meeting</h2>
+    <h1>@Model.PresentationTitle</h1>
+    <h2>@Model.MonthYear Meeting</h2>
     
 </div>
 
@@ -19,8 +19,8 @@
     </div>
     <div class="span4">
         <h2>Time and Place</h2>
-        <p>@Model.Date</p>
-        <p>@Model.Time</p>
+        <p>@Model.Date.ToString("G")</p>
+        <p>@Model.StartTime</p>
         <p>The Joint</p><p> 301 Main St.</p><p> North Little Rock, AR 72114‎</p>
         <p><a class="btn btn-primary" href="https://maps.google.com/maps?ie=UTF8&cid=3938605659390243919&q=The+Joint&iwloc=A&gl=US&hl=en">View Map &raquo;</a></p>
     </div>

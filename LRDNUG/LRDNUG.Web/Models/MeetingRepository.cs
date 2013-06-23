@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Web;
 
 namespace LRDNUG.Web.Models
@@ -17,13 +15,11 @@ namespace LRDNUG.Web.Models
             get { return context.Meetings; }
         }
 
-        public IQueryable<Meeting> AllIncluding(params Expression<Func<Meeting, object>>[] includeProperties)
+        public Meeting NextUpcomingMeeting(DateTime todaysDate)
         {
-            IQueryable<Meeting> query = context.Meetings;
-            foreach (var includeProperty in includeProperties) {
-                query = query.Include(includeProperty);
-            }
-            return query;
+            DateTime startRange = todaysDate;
+            DateTime endRange = todaysDate.AddMonths(1);
+            return context.Meetings.FirstOrDefault(x => x.Date >= startRange && x.Date <= endRange);
         }
 
         public Meeting Find(int id)
@@ -53,6 +49,11 @@ namespace LRDNUG.Web.Models
             context.SaveChanges();
         }
 
+        public IEnumerable<Meeting> PastMeetings(DateTime todaysDate)
+        {
+            return context.Meetings.Where(x => x.Date <= todaysDate);
+        }
+
         public void Dispose() 
         {
             context.Dispose();
@@ -62,10 +63,11 @@ namespace LRDNUG.Web.Models
     public interface IMeetingRepository : IDisposable
     {
         IQueryable<Meeting> All { get; }
-        IQueryable<Meeting> AllIncluding(params Expression<Func<Meeting, object>>[] includeProperties);
+        Meeting NextUpcomingMeeting(DateTime todaysDate);
         Meeting Find(int id);
         void InsertOrUpdate(Meeting meeting);
         void Delete(int id);
         void Save();
+        IEnumerable<Meeting> PastMeetings(DateTime todaysDate);
     }
 }
