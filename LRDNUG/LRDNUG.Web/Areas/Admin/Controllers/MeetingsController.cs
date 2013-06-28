@@ -1,33 +1,30 @@
 using System.Web.Mvc;
 using LRDNUG.Web.Models;
 
-namespace LRDNUG.Web.Controllers
+namespace LRDNUG.Web.Areas.Admin.Controllers
 {
-    public class SponsorsController : Controller
+    public class MeetingsController : Controller
     {
-        private readonly ISponsorsRepository sponsorsRepository;
+        private readonly IMeetingRepository meetingRepository;
 
-        public SponsorsController() : this(new SponsorsRepository())
+        public MeetingsController() : this(new MeetingRepository())
         {
         }
 
-        public SponsorsController(ISponsorsRepository sponsorsRepository)
+        public MeetingsController(IMeetingRepository meetingRepository)
         {
-            this.sponsorsRepository = sponsorsRepository;
+            this.meetingRepository = meetingRepository;
         }
-
 
         public ViewResult Index()
         {
-            return View(sponsorsRepository.All);
+            return View(meetingRepository.All);
         }
-
 
         public ViewResult Details(int id)
         {
-            return View(sponsorsRepository.Find(id));
+            return View(meetingRepository.Find(id));
         }
-
 
         public ActionResult Create()
         {
@@ -36,12 +33,12 @@ namespace LRDNUG.Web.Controllers
 
 
         [HttpPost]
-        public ActionResult Create(Sponsors sponsors)
+        public ActionResult Create(Meeting meeting)
         {
             if (ModelState.IsValid)
             {
-                sponsorsRepository.InsertOrUpdate(sponsors);
-                sponsorsRepository.Save();
+                meetingRepository.InsertOrUpdate(meeting);
+                meetingRepository.Save();
                 return RedirectToAction("Index");
             }
             else
@@ -53,17 +50,17 @@ namespace LRDNUG.Web.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View(sponsorsRepository.Find(id));
+            return View(meetingRepository.Find(id));
         }
 
 
         [HttpPost]
-        public ActionResult Edit(Sponsors sponsors)
+        public ActionResult Edit(Meeting meeting)
         {
             if (ModelState.IsValid)
             {
-                sponsorsRepository.InsertOrUpdate(sponsors);
-                sponsorsRepository.Save();
+                meetingRepository.InsertOrUpdate(meeting);
+                meetingRepository.Save();
                 return RedirectToAction("Index");
             }
             else
@@ -72,18 +69,17 @@ namespace LRDNUG.Web.Controllers
             }
         }
 
-
         public ActionResult Delete(int id)
         {
-            return View(sponsorsRepository.Find(id));
+            return View(meetingRepository.Find(id));
         }
 
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            sponsorsRepository.Delete(id);
-            sponsorsRepository.Save();
+            meetingRepository.Delete(id);
+            meetingRepository.Save();
 
             return RedirectToAction("Index");
         }
@@ -92,7 +88,7 @@ namespace LRDNUG.Web.Controllers
         {
             if (disposing)
             {
-                sponsorsRepository.Dispose();
+                meetingRepository.Dispose();
             }
             base.Dispose(disposing);
         }

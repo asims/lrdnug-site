@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -25,18 +26,28 @@ namespace LRDNUG.Web.Models
     {
         public int ID { get; set; }
         [Required]
+        [DisplayName("Title")]
         public string PresentationTitle { get; set; }
         [Required]
+        [DisplayName("Speaker Name")]
         public string SpeakerName { get; set; }
+        [DisplayName("Speaker Bio")]
         public string SpeakerBio { get; set; }
+        [DisplayName("Twitter Handle")]
         public string SpeakerTwitter { get; set; }
+        [DisplayName("Topic Description")]
         public string Description { get; set; }
         [Required]
+        [DisplayName("Date of Presentation")]
         public DateTime Date { get; set; }
+
+        [DisplayName("Starting Time")]
         public string StartTime { get; set; }
         [Required]
+        [DisplayName("Month & Year")]
         public string MonthYear { get; set; }
         public virtual Location Location { get; set; }
+        [DisplayName("Survey URL (if applicable)")]
         public string SurveyURL { get; set; }
     }
 

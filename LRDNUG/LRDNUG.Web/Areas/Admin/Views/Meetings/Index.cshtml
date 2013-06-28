@@ -1,0 +1,46 @@
+@model IEnumerable<LRDNUG.Web.Models.Meeting>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped table-bordered">
+    <tr>
+        <th></th>
+        <th>When
+        </th>
+        <th>PresentationTitle
+        </th>
+        <th>SpeakerName
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+            <td>
+                @item.MonthYear
+            </td>
+
+            <td>
+                @item.PresentationTitle
+            </td>
+            <td>
+                @item.SpeakerName
+            </td>
+        </tr>
+    }
+
+</table>
+
+

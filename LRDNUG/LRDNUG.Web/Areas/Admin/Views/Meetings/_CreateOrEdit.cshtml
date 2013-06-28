@@ -1,0 +1,90 @@
+@model LRDNUG.Web.Models.Meeting
+
+@* This partial view defines form fields that will appear when creating and editing entities *@
+
+<div class="control-group">
+    @Html.LabelFor(model => model.MonthYear, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.EditorFor(model => model.MonthYear)
+        @Html.ValidationMessageFor(model => model.MonthYear)
+    </div>
+</div>
+
+
+<div class="control-group">
+    @Html.LabelFor(model => model.Date, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.EditorFor(model => model.Date)
+        @Html.ValidationMessageFor(model => model.Date)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.StartTime, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.EditorFor(model => model.StartTime)
+        @Html.ValidationMessageFor(model => model.StartTime)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.PresentationTitle, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.TextBoxFor(model => model.PresentationTitle, new { @class = "input-xxlarge" })
+        @Html.ValidationMessageFor(model => model.PresentationTitle)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.TextAreaFor(model => model.Description,  new { @class = "input-xxlarge" })
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+</div>
+<div class="control-group">
+    @Html.LabelFor(model => model.SpeakerName, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.TextBoxFor(model => model.SpeakerName, new { @class = "input-xlarge" })
+        @Html.ValidationMessageFor(model => model.SpeakerName)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.SpeakerBio, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.TextAreaFor(model => model.SpeakerBio, new { @class = "input-xxlarge" })
+        @Html.ValidationMessageFor(model => model.SpeakerBio)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.SpeakerTwitter, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.EditorFor(model => model.SpeakerTwitter)
+        @Html.ValidationMessageFor(model => model.SpeakerTwitter)
+    </div>
+
+</div>
+
+
+
+
+
+<div class="control-group">
+    @Html.LabelFor(model => model.SurveyURL, new { @class = "control-label" })
+
+    <div class="controls">
+        @Html.TextBoxFor(model => model.SurveyURL, new { @class = "input-xxlarge" })
+        @Html.ValidationMessageFor(model => model.SurveyURL)
+    </div>
+</div>
+

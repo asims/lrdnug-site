@@ -1,0 +1,21 @@
+@model LRDNUG.Web.Models.Meeting
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm("Create","Meetings",FormMethod.Post, new { @class="form-horizontal"})) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Create Meeting</legend>
+
+		@Html.Partial("_CreateOrEdit", Model)
+
+        <div class="form-actions">
+            <input type="submit" value="Create" class="btn btn-primary"/>
+              @Html.ActionLink("Back to List", "Index", null,null,new {@class = "btn"})
+        </div>
+    </fieldset>
+}
+
+

@@ -1,0 +1,21 @@
+@model LRDNUG.Web.Models.Meeting
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm("Edit","Meetings",FormMethod.Post, new { @class="form-horizontal"})) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Edit Meeting</legend>
+
+        @Html.HiddenFor(model => model.ID)
+		@Html.Partial("_CreateOrEdit", Model)
+
+        <div class="form-actions">
+            <input type="submit" value="Save" class="btn btn-primary"/>
+              @Html.ActionLink("Back to List", "Index", null,null,new {@class = "btn"})
+        </div>
+    </fieldset>
+}
+

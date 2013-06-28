@@ -1,0 +1,67 @@
+@model LRDNUG.Web.Models.Meeting
+
+@{
+    ViewBag.Title = "Meeting Details";
+}
+
+
+<fieldset>
+    <legend>Meeting Details </legend>
+
+    <dl class="dl-horizontal">
+        <dt>Title</dt>
+        <dd>@Model.PresentationTitle </dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>SpeakerName</dt>
+        <dd>@Model.SpeakerName</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>SpeakerBio</dt>
+        <dd>@Model.SpeakerBio</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>SpeakerTwitter</dt>
+        <dd>@Model.SpeakerTwitter</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>Description</dt>
+        <dd>@Model.Description</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>Date</dt>
+        <dd>@String.Format("{0:g}", Model.Date)</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>StartTime</dt>
+        <dd>@Model.StartTime</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>MonthYear</dt>
+        <dd>@Model.MonthYear</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>Location</dt>
+        <dd>@(Model.Location == null ? "None" : Model.Location.Name)</dd>
+    </dl>
+
+    <dl class="dl-horizontal">
+        <dt>SurveyURL</dt>
+        <dd>@Model.SurveyURL</dd>
+    </dl>
+</fieldset>
+
+<div class="form-actions">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn" })
+    @Html.ActionLink("Back to List", "Index", null, null, new { @class = "btn" })
+</div>
+
+

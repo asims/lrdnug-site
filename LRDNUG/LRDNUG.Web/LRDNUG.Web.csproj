@@ -152,6 +152,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="App_Start\ExampleLayoutsRouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="BootstrapSupport\ControlGroupExtensions.cs" />
     <Compile Include="BootstrapSupport\HtmlHelpers\GlyphIcons.cs" />
@@ -160,10 +161,10 @@
     <Compile Include="Controllers\BootstrapBaseController.cs" />
     <Compile Include="Controllers\ExampleLayoutsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
     <Compile Include="Controllers\MeetingController.cs" />
-    <Compile Include="Controllers\MeetingsController.cs" />
-    <Compile Include="Controllers\SponsorsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MeetingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SponsorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +206,9 @@
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="scripts\html5shiv.js" />
+    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\Web.config" />
+    <Content Include="Areas\_ViewStart.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -260,30 +264,32 @@
     <Content Include="Views\Meeting\NextMeeting.cshtml" />
     <Content Include="Views\Meeting\PastMeetings.cshtml" />
     <Content Include="Views\shared\Index.cshtml" />
-    <Content Include="Views\Locations\Create.cshtml" />
-    <Content Include="Views\Locations\Edit.cshtml" />
-    <Content Include="Views\Locations\Delete.cshtml" />
-    <Content Include="Views\Locations\Details.cshtml" />
-    <Content Include="Views\Locations\Index.cshtml" />
-    <Content Include="Views\Locations\_CreateOrEdit.cshtml" />
-    <Content Include="Views\Sponsors\Create.cshtml" />
-    <Content Include="Views\Sponsors\Edit.cshtml" />
-    <Content Include="Views\Sponsors\Delete.cshtml" />
-    <Content Include="Views\Sponsors\Details.cshtml" />
-    <Content Include="Views\Sponsors\Index.cshtml" />
-    <Content Include="Views\Sponsors\_CreateOrEdit.cshtml" />
-    <Content Include="Views\Meetings\Create.cshtml" />
-    <Content Include="Views\Meetings\Edit.cshtml" />
-    <Content Include="Views\Meetings\Delete.cshtml" />
-    <Content Include="Views\Meetings\Details.cshtml" />
-    <Content Include="Views\Meetings\Index.cshtml" />
-    <Content Include="Views\Meetings\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Sponsors\_CreateOrEdit.cshtml" />
+    <Content Include="Areas\Admin\Views\Meetings\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Meetings\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Meetings\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Meetings\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Meetings\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Meetings\_CreateOrEdit.cshtml" />
     <Content Include="Views\Meeting\NoUpComingMeeting.cshtml" />
     <None Include="_bin_deployableAssemblies\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
     <None Include="_bin_deployableAssemblies\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,30 +1,31 @@
 using System.Web.Mvc;
 using LRDNUG.Web.Models;
 
-namespace LRDNUG.Web.Controllers
+namespace LRDNUG.Web.Areas.Admin.Controllers
 {
-    public class LocationsController : Controller
+    public class SponsorsController : Controller
     {
-        private readonly ILocationRepository locationRepository;
+        private readonly ISponsorsRepository sponsorsRepository;
 
-        public LocationsController() : this(new LocationRepository())
+        public SponsorsController() : this(new SponsorsRepository())
         {
         }
 
-        public LocationsController(ILocationRepository locationRepository)
+        public SponsorsController(ISponsorsRepository sponsorsRepository)
         {
-            this.locationRepository = locationRepository;
+            this.sponsorsRepository = sponsorsRepository;
         }
+
 
         public ViewResult Index()
         {
-            return View(locationRepository.All);
+            return View(sponsorsRepository.All);
         }
 
 
         public ViewResult Details(int id)
         {
-            return View(locationRepository.Find(id));
+            return View(sponsorsRepository.Find(id));
         }
 
 
@@ -35,12 +36,12 @@ namespace LRDNUG.Web.Controllers
 
 
         [HttpPost]
-        public ActionResult Create(Location location)
+        public ActionResult Create(Sponsors sponsors)
         {
             if (ModelState.IsValid)
             {
-                locationRepository.InsertOrUpdate(location);
-                locationRepository.Save();
+                sponsorsRepository.InsertOrUpdate(sponsors);
+                sponsorsRepository.Save();
                 return RedirectToAction("Index");
             }
             else
@@ -49,19 +50,20 @@ namespace LRDNUG.Web.Controllers
             }
         }
 
+
         public ActionResult Edit(int id)
         {
-            return View(locationRepository.Find(id));
+            return View(sponsorsRepository.Find(id));
         }
 
 
         [HttpPost]
-        public ActionResult Edit(Location location)
+        public ActionResult Edit(Sponsors sponsors)
         {
             if (ModelState.IsValid)
             {
-                locationRepository.InsertOrUpdate(location);
-                locationRepository.Save();
+                sponsorsRepository.InsertOrUpdate(sponsors);
+                sponsorsRepository.Save();
                 return RedirectToAction("Index");
             }
             else
@@ -73,14 +75,15 @@ namespace LRDNUG.Web.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View(locationRepository.Find(id));
+            return View(sponsorsRepository.Find(id));
         }
+
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            locationRepository.Delete(id);
-            locationRepository.Save();
+            sponsorsRepository.Delete(id);
+            sponsorsRepository.Save();
 
             return RedirectToAction("Index");
         }
@@ -89,7 +92,7 @@ namespace LRDNUG.Web.Controllers
         {
             if (disposing)
             {
-                locationRepository.Dispose();
+                sponsorsRepository.Dispose();
             }
             base.Dispose(disposing);
         }
