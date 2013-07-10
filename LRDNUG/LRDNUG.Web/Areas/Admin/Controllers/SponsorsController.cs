@@ -5,7 +5,7 @@ using LRDNUG.Web.Models;
 
 namespace LRDNUG.Web.Areas.Admin.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class SponsorsController : BaseController
     {
         public ViewResult Index()

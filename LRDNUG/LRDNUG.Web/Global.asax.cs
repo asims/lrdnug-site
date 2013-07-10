@@ -43,6 +43,7 @@ namespace LRDNUG.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BootstrapBundleConfig.RegisterBundles(BundleTable.Bundles);
             ExampleLayoutsRouteConfig.RegisterRoutes(RouteTable.Routes);
+            AuthConfig.RegisterAuth();
         }
     }
 }
