@@ -1,31 +1,22 @@
+using System.Data;
 using System.Web.Mvc;
+using LRDNUG.Web.Controllers;
 using LRDNUG.Web.Models;
 
 namespace LRDNUG.Web.Areas.Admin.Controllers
 {
-    public class SponsorsController : Controller
+    [Authorize]
+    public class SponsorsController : BaseController
     {
-        private readonly ISponsorsRepository sponsorsRepository;
-
-        public SponsorsController() : this(new SponsorsRepository())
-        {
-        }
-
-        public SponsorsController(ISponsorsRepository sponsorsRepository)
-        {
-            this.sponsorsRepository = sponsorsRepository;
-        }
-
-
         public ViewResult Index()
         {
-            return View(sponsorsRepository.All);
+            return View(DBContext.Sponsors);
         }
 
 
         public ViewResult Details(int id)
         {
-            return View(sponsorsRepository.Find(id));
+            return View(DBContext.Sponsors.Find(id));
         }
 
 
@@ -40,8 +31,8 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                sponsorsRepository.InsertOrUpdate(sponsors);
-                sponsorsRepository.Save();
+                DBContext.Sponsors.Add(sponsors);
+                Success(string.Format("Sponsor named '{0}' was added.", sponsors.Name));
                 return RedirectToAction("Index");
             }
             else
@@ -53,7 +44,7 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View(sponsorsRepository.Find(id));
+            return View(DBContext.Sponsors.Find(id));
         }
 
 
@@ -62,8 +53,8 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                sponsorsRepository.InsertOrUpdate(sponsors);
-                sponsorsRepository.Save();
+                DBContext.Sponsors.Attach(sponsors);
+                DBContext.Entry(sponsors).State = EntityState.Modified;
                 return RedirectToAction("Index");
             }
             else
@@ -75,26 +66,17 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View(sponsorsRepository.Find(id));
+            return View(DBContext.Sponsors.Find(id));
         }
 
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            sponsorsRepository.Delete(id);
-            sponsorsRepository.Save();
+            Sponsors sponsor = DBContext.Sponsors.Find(id);
+            DBContext.Sponsors.Remove(sponsor);
 
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                sponsorsRepository.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

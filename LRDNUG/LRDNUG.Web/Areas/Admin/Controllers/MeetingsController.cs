@@ -1,29 +1,21 @@
+using System.Data;
 using System.Web.Mvc;
+using LRDNUG.Web.Controllers;
 using LRDNUG.Web.Models;
 
 namespace LRDNUG.Web.Areas.Admin.Controllers
 {
-    public class MeetingsController : Controller
+    [Authorize]
+    public class MeetingsController : BaseController
     {
-        private readonly IMeetingRepository meetingRepository;
-
-        public MeetingsController() : this(new MeetingRepository())
-        {
-        }
-
-        public MeetingsController(IMeetingRepository meetingRepository)
-        {
-            this.meetingRepository = meetingRepository;
-        }
-
         public ViewResult Index()
         {
-            return View(meetingRepository.All);
+            return View(DBContext.Meetings);
         }
 
         public ViewResult Details(int id)
         {
-            return View(meetingRepository.Find(id));
+            return View(DBContext.Meetings.Find(id));
         }
 
         public ActionResult Create()
@@ -37,20 +29,18 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                meetingRepository.InsertOrUpdate(meeting);
-                meetingRepository.Save();
+                DBContext.Meetings.Add(meeting);
+                Success(string.Format("Meeting for '{0}' was added.", meeting.MonthYear));
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View();
-            }
+
+            return View();
         }
 
 
         public ActionResult Edit(int id)
         {
-            return View(meetingRepository.Find(id));
+            return View(DBContext.Meetings.Find(id));
         }
 
 
@@ -59,38 +49,26 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                meetingRepository.InsertOrUpdate(meeting);
-                meetingRepository.Save();
+                DBContext.Meetings.Attach(meeting);
+                DBContext.Entry(meeting).State = EntityState.Modified;
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View();
-            }
+            return View();
         }
 
         public ActionResult Delete(int id)
         {
-            return View(meetingRepository.Find(id));
+            return View(DBContext.Meetings.Find(id));
         }
 
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            meetingRepository.Delete(id);
-            meetingRepository.Save();
+            Meeting meeting = DBContext.Meetings.Find(id);
+            DBContext.Meetings.Remove(meeting);
 
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                meetingRepository.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

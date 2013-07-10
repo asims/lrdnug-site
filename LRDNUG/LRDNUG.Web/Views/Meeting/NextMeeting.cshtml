@@ -1,4 +1,4 @@
-﻿@model LRDNUG.Web.Models.MeetingViewModel
+﻿@model LRDNUG.Web.Models.Meeting
 
 @{
     ViewBag.Title = "Upcoming Meeting";
@@ -6,31 +6,33 @@
 
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
+    <h3>Next Meeting: @Model.Date.ToString("MMMM dd, yyyy")</h3>
     <h1>@Model.PresentationTitle</h1>
-    <h2>@Model.MonthYear Meeting</h2>
+    
     
 </div>
 
 <!-- Example row of columns -->
 <div class="row">
-    <div class="span8">
-        <h2>Description</h2>
-        <p>@Html.Raw(Model.Description)</p>
+    <div class="span6">
+        <p><b>About the Topic:</b> @Html.Raw(Model.Description)</p>
     </div>
+
     <div class="span4">
-        <h2>Time and Place</h2>
-        <p>@Model.Date.ToString("G")</p>
-        <p>@Model.StartTime</p>
-        <p>The Joint</p><p> 301 Main St.</p><p> North Little Rock, AR 72114‎</p>
+        <h3>Time and Place</h3>
+        <p>@Model.Date.ToShortDateString() @@ @Model.StartTime<br/>
+        The Joint <br/> 301 Main St.<br/> North Little Rock, AR 72114‎</p>
         <p><a class="btn btn-primary" href="https://maps.google.com/maps?ie=UTF8&cid=3938605659390243919&q=The+Joint&iwloc=A&gl=US&hl=en">View Map &raquo;</a></p>
     </div>
+    
 </div>
 
+        
 <div class="row">
-    <div class="span8">
-        <h2>About the Speaker</h2>
-        <p>@Model.SpeakerName</p>
+    <div class="span6">
+        <h3>About @Model.SpeakerName</h3>
         <p>@Model.SpeakerBio</p>
     </div>
 
 </div>
+

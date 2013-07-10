@@ -1,30 +1,22 @@
+using System.Data;
 using System.Web.Mvc;
+using LRDNUG.Web.Controllers;
 using LRDNUG.Web.Models;
 
 namespace LRDNUG.Web.Areas.Admin.Controllers
 {
-    public class LocationsController : Controller
+    [Authorize]
+    public class LocationsController : BaseController
     {
-        private readonly ILocationRepository locationRepository;
-
-        public LocationsController() : this(new LocationRepository())
-        {
-        }
-
-        public LocationsController(ILocationRepository locationRepository)
-        {
-            this.locationRepository = locationRepository;
-        }
-
         public ViewResult Index()
         {
-            return View(locationRepository.All);
+            return View(DBContext.Locations);
         }
 
 
         public ViewResult Details(int id)
         {
-            return View(locationRepository.Find(id));
+            return View(DBContext.Locations.Find(id));
         }
 
 
@@ -39,8 +31,8 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                locationRepository.InsertOrUpdate(location);
-                locationRepository.Save();
+                DBContext.Locations.Add(location);
+                Success(string.Format("Location named '{0}' was added.", location.Name));
                 return RedirectToAction("Index");
             }
             else
@@ -51,7 +43,7 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View(locationRepository.Find(id));
+            return View(DBContext.Locations.Find(id));
         }
 
 
@@ -60,8 +52,8 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                locationRepository.InsertOrUpdate(location);
-                locationRepository.Save();
+                DBContext.Locations.Attach(location);
+                DBContext.Entry(location).State = EntityState.Modified;
                 return RedirectToAction("Index");
             }
             else
@@ -73,25 +65,16 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View(locationRepository.Find(id));
+            return View(DBContext.Locations.Find(id));
         }
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
-            locationRepository.Delete(id);
-            locationRepository.Save();
+            Location location = DBContext.Locations.Find(id);
+            DBContext.Locations.Remove(location);
 
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                locationRepository.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 
 namespace LRDNUG.Web.Models
 {
@@ -17,10 +13,10 @@ namespace LRDNUG.Web.Models
         // 
         // System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<LRDNUG.Web.Models.LRDNUGWebContext>());
 
-        public DbSet<LRDNUG.Web.Models.Location> Locations { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
-        public DbSet<LRDNUG.Web.Models.Sponsors> Sponsors { get; set; }
+        public DbSet<Sponsors> Sponsors { get; set; }
 
-        public DbSet<LRDNUG.Web.Models.Meeting> Meetings { get; set; }
+        public DbSet<Meeting> Meetings { get; set; }
     }
 }
