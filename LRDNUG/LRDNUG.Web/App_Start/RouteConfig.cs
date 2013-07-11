@@ -4,8 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using LRDNUG.Web.Controllers;
-using NavigationRoutes;
 
 namespace LRDNUG.Web
 {
@@ -18,13 +16,8 @@ namespace LRDNUG.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Meeting", action = "Index", id = UrlParameter.Optional }
-
-
+                defaults: new { controller = "Meeting", action = "Index", id = UrlParameter.Optional, area = "" }
             );
-
-            routes.MapNavigationRoute<MeetingController>("Next Meeting", c => c.NextMeeting());
-            routes.MapNavigationRoute<MeetingController>("Past Meetings", c => c.PastMeetings());
         }
     }
 }

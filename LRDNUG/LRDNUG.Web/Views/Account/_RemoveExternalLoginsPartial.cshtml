@@ -1,12 +1,11 @@
-﻿@using LRDNUG.Web.Models
-@model ICollection<LRDNUG.Web.Models.ExternalLogin>
+﻿@model ICollection<LRDNUG.Web.Models.ExternalLogin>
 
 @if (Model.Count > 0)
 {
     <h3>Registered external logins</h3>
     <table>
         <tbody>
-        @foreach (ExternalLogin externalLogin in Model)
+        @foreach (LRDNUG.Web.Models.ExternalLogin externalLogin in Model)
         {
             <tr>
                 <td>@externalLogin.ProviderDisplayName</td>

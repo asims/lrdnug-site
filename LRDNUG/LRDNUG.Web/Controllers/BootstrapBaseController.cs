@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using BootstrapSupport;
 
-namespace BootstrapMvcSample.Controllers
+namespace LRDNUG.Web.Controllers
 {
     public class BootstrapBaseController: Controller
     {

@@ -1,4 +1,5 @@
 using System.Data;
+using System.Linq;
 using System.Web.Mvc;
 using LRDNUG.Web.Controllers;
 using LRDNUG.Web.Models;
@@ -10,7 +11,7 @@ namespace LRDNUG.Web.Areas.Admin.Controllers
     {
         public ViewResult Index()
         {
-            return View(DBContext.Meetings);
+            return View(DBContext.Meetings.OrderByDescending(x=>x.Date));
         }
 
         public ViewResult Details(int id)

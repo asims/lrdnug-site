@@ -110,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LRDNUG.Web\LRDNUG.Web.csproj">
-      <Project>{5328388E-ED93-4C9F-B537-6E3D65411A61}</Project>
+      <Project>{06c5ba57-b60e-4ecb-bd02-80e88a48625e}</Project>
       <Name>LRDNUG.Web</Name>
     </ProjectReference>
   </ItemGroup>

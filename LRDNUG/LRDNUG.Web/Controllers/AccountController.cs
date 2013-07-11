@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using DotNetOpenAuth.AspNet;
-using LRDNUG.Web.Filters;
-using LRDNUG.Web.Models;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
+using LRDNUG.Web.Models;
 
 namespace LRDNUG.Web.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
