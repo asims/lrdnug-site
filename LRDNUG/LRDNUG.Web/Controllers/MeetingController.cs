@@ -16,6 +16,7 @@ namespace LRDNUG.Web.Controllers
         {
             Meeting nextMeeting = DBContext.Meetings
                                            .WhereIsNextMeeting(DateTime.Now)
+                                           .OrderBy(x => x.Date)
                                            .FirstOrDefault();
 
             if (nextMeeting == null)

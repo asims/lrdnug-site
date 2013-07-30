@@ -15,7 +15,7 @@ namespace LRDNUG.Web.Controllers
 
         public static IQueryable<Meeting> WhereIsNextMeeting(this IQueryable<Meeting> query, DateTime todaysDate)
         {
-            DateTime startRange = todaysDate;
+            DateTime startRange = todaysDate.AddDays(-7);
             DateTime endRange = todaysDate.AddMonths(1);
             return query.Where(x => x.Date >= startRange && x.Date <= endRange);
         }
