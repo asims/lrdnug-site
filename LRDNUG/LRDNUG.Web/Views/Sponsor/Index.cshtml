@@ -1,0 +1,33 @@
+﻿@model IEnumerable<LRDNUG.Web.Models.Sponsors>
+
+@{
+    ViewBag.Title = "Our Sponsors";
+}
+
+<h2>We appreciate the following sponsors!</h2>
+
+<br />
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="span3">
+            @if (!string.IsNullOrEmpty(item.LogoUrl))
+            {
+                <a class="pull-left" href="@item.URL">
+                    <img data-src="holder.js/260x180" alt="@item.URL" style="width: 260px;" src="@item.LogoUrl" />
+                </a>
+            }
+        </div>
+        <div class="span8">
+            <h3 class="media-heading"><a href="@item.URL">@item.Name</a></h3>
+            @item.Description
+        </div>
+    </div>
+    <br />
+    <br />
+    
+}
+
+
+
+

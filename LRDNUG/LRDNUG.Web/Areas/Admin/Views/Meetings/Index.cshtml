@@ -1,10 +1,10 @@
 @model IEnumerable<LRDNUG.Web.Models.Meeting>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin List of Meetings";
 }
 
-<h2>Index</h2>
+<h2>Admin List of Meetings</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -24,9 +24,16 @@
     {
         <tr>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                <div class="btn-group">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Action
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>@Html.ActionLink("Edit", "Edit", new { id = item.ID })</li>
+                        <li>@Html.ActionLink("Details", "Details", new { id = item.ID })</li>
+                        <li>@Html.ActionLink("Delete", "Delete", new { id = item.ID })</li>
+                    </ul>
+                </div>
             </td>
             <td>
                 @item.MonthYear
