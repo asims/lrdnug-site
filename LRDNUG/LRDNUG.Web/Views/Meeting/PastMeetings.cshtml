@@ -6,9 +6,10 @@
 
 <h2>Past Meetings</h2>
 
-<ul>
+<dl class="dl-horizontal">
     @foreach (var m in Model)
     {
-        <li>@m.MonthYear - @m.PresentationTitle by @m.SpeakerName</li>
+        <dt>@m.MonthYear</dt>
+        <dd><a href="@Url.Action("Detail", "Meeting", new { m.ID })"><i>@m.SpeakerName</i> - @m.PresentationTitle</a></dd>
     }
-</ul>
+</dl>

@@ -13,6 +13,13 @@ namespace LRDNUG.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "MeetingMonthYear",
+                url: "pastmeetings/{year}/{month}",
+                defaults: new { controller = "Meeting", action = "DetailByMonthYear", month = DateTime.Now.Month, year = DateTime.Now.Year, area = "" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

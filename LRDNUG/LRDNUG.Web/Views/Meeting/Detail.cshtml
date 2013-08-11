@@ -1,0 +1,51 @@
+﻿@model LRDNUG.Web.Models.Meeting
+
+@{
+    ViewBag.Title = @Model.MonthYear + " Meeting";
+}
+<ul class="breadcrumb">
+    <li>@Html.ActionLink("Past Meetings", "PastMeetings", "Meeting")<span class="divider">/</span></li>
+    <li class="active">@Model.MonthYear Meeting</li>
+</ul>
+<!-- Main hero unit for a primary marketing message or call to action -->
+<div class="page-header">
+
+    <h3>Meeting Held: @Model.Date.ToString("MMMM dd, yyyy")</h3>
+    <h1>@Model.PresentationTitle</h1>
+
+
+</div>
+
+<!-- Example row of columns -->
+<div class="row">
+    <div class="span6">
+        @if (!string.IsNullOrEmpty(Model.Description))
+        {
+            <p><b>About the Topic:</b> @Html.Raw(Model.Description)</p>
+        }
+    </div>
+
+    <div class="span4">
+        <h3>Held at:</h3>
+        <p>@Model.Date.ToShortDateString() @@ @Model.StartTime<br />
+            The Joint
+            <br />
+            301 Main St.<br />
+            North Little Rock, AR 72114‎
+        </p>
+        <p><a class="btn btn-primary" href="https://maps.google.com/maps?ie=UTF8&cid=3938605659390243919&q=The+Joint&iwloc=A&gl=US&hl=en">View Map &raquo;</a></p>
+    </div>
+
+</div>
+
+@if (!string.IsNullOrEmpty(Model.Description))
+{
+    <div class="row">
+        <div class="span6">
+            <h3>About @Model.SpeakerName</h3>
+            <p>@Model.SpeakerBio</p>
+        </div>
+
+    </div>
+}
+

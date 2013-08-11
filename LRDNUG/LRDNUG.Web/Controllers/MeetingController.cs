@@ -28,8 +28,31 @@ namespace LRDNUG.Web.Controllers
 
         public ActionResult PastMeetings()
         {
-            IQueryable<Meeting> pastMeetings = DBContext.Meetings.WhereMeetingIsInPast(DateTime.Now);
+            IQueryable<Meeting> pastMeetings = DBContext.Meetings.WhereMeetingIsInPast(DateTime.Now).OrderByDescending(x => x.Date);
             return View("PastMeetings", pastMeetings);
+        }
+
+        public ActionResult Detail(int id)
+        {
+            var meeting = DBContext.Meetings.FirstOrDefault(x => x.ID == id);
+            if (meeting == null)
+            {
+                return RedirectToAction("PastMeetings");
+            }
+
+            return View(meeting);
+        }
+
+        public ActionResult DetailByMonthYear(string month, int year)
+        {
+            var monthyear = month + " " + year.ToString();
+            var meeting = DBContext.Meetings.FirstOrDefault(x => x.MonthYear == monthyear);
+            if (meeting == null)
+            {
+                return RedirectToAction("PastMeetings");
+            }
+
+            return View("Detail", meeting);
         }
     }
 }
