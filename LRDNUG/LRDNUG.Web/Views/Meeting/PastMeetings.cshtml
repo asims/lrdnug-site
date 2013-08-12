@@ -7,9 +7,14 @@
 <h2>Past Meetings</h2>
 
 <dl class="dl-horizontal">
-    @foreach (var m in Model)
+    @foreach (var yeargroup in Model.GroupBy(x=>x.Date.Year))
     {
-        <dt>@m.MonthYear</dt>
+        <h4>@yeargroup.Key</h4>
+        foreach (var m in yeargroup)
+        {
+            <dt>@m.MonthYear</dt>
         <dd><a href="@Url.Action("Detail", "Meeting", new { m.ID })"><i>@m.SpeakerName</i> - @m.PresentationTitle</a></dd>
+        }
+        
     }
 </dl>
