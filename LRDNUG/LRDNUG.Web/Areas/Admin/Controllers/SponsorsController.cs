@@ -1,4 +1,5 @@
 using System.Data;
+using System.Data.Entity;
 using System.Web.Mvc;
 using LRDNUG.Web.Controllers;
 using LRDNUG.Web.Models;

@@ -18,5 +18,6 @@ namespace LRDNUG.Web.Models
         public DbSet<Sponsors> Sponsors { get; set; }
 
         public DbSet<Meeting> Meetings { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace LRDNUG.Web
         protected void Application_Start()
         {
 
-            Database.SetInitializer<LRDNUGWebContext>(null);
+           // Database.SetInitializer<LRDNUGWebContext>(null);
 
             AreaRegistration.RegisterAllAreas();
 

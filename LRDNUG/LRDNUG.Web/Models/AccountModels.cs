@@ -9,16 +9,6 @@ using System.Web.Security;
 
 namespace LRDNUG.Web.Models
 {
-    public class UsersContext : DbContext
-    {
-        public UsersContext()
-            : base("LRDNUGWebContext")
-        {
-        }
-
-        public DbSet<UserProfile> UserProfiles { get; set; }
-    }
-
     [Table("UserProfile")]
     public class UserProfile
     {
