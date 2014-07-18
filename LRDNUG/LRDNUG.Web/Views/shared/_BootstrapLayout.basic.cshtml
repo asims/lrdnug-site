@@ -1,4 +1,4 @@
-@using System.Web.Optimization
+﻿@using System.Web.Optimization
 @using BootstrapSupport
 @using NavigationRoutes
 <!DOCTYPE html>
@@ -39,7 +39,13 @@
         @Html.Partial("_alerts")
         @Html.Partial("_validationSummary")
         @RenderBody()
-        <hr>
+        <hr />
+        <div class="row">
+            <div class="span2">
+                <a href="http://shop.oreilly.com"><img src="@Url.Content("~/Images/ug_discount_125x125.gif")" alt="oreilly.com"></a>
+            </div>
+        </div>
+        <hr />
         <footer>
             <p>&copy; Little Rock .NET User Group @System.DateTime.Now.ToString("yyyy")</p>
             @Html.Partial("_LoginPartial")
